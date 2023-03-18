@@ -30,11 +30,9 @@ jobs:
     - name: SSH Remote Commands
       uses: appleboy/ssh-action@v0.1.2
       with:
-         host: ${{secrets.SSH_HOST}} # IP address of the server you wish to ssh into
-          port: ${{secrets.SSH_PORT}} 
-          key: ${{secrets.SSH_KEY}} # Private or public key of the server
-          username: ${{ secrets.SSH_USERNAME }} # User of the server you want to ssh into
-        
+        key: ${{secrets.GOOGLE_CLOUD_VM_SSH}}
+        host: ${{secrets.GOOGLE_CLOUD_VM_IP}}
+        username: ${{secrets.GOOGLE_CLOUD_VM_USERNAME}}
         script: |
           pm2 delete all
           cd /var/app/tdd-nodejs
